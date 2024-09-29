@@ -1,0 +1,38 @@
+.custom-skeleton {
+    // width: 100%;
+    // height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: translate(-50%, -50%);
+    // display: flex;
+    // flex-direction: row;
+    // align-items: center;
+}
+
+.custom-skeleton > * {
+    margin-bottom: 20px;
+}
+
+/* Custom styling for the Skeleton */
+.custom-skeleton .react-loading-skeleton {
+    background-color: #eee; /* Set background color */
+    border-radius: 8px; /* Add border radius */
+}
+
+/* Custom animation */
+@keyframes custom-loading-animation {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+.custom-skeleton .react-loading-skeleton {
+    animation: custom-loading-animation 1.5s infinite ease-in-out; /* Apply animation */
+}
