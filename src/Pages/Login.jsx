@@ -13,8 +13,9 @@ function Signup() {
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
+    role : ""
   });
-  console.log("🚀 ~ Signup ~ loginData:", loginData)
+
   function handleUserInput(e) {
     const { name, value } = e.target;
     setLoginData({
@@ -37,6 +38,7 @@ function Signup() {
     setLoginData({
       email: "",
       password: "",
+      role : "",
     });
   }
 
