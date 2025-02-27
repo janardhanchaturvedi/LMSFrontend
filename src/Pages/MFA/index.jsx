@@ -20,14 +20,11 @@ export default function MFA() {
 
   // Handle MFA verification
   const handleVerify = async (code, isBackupCode) => {
-    // In a real app, this would validate with your backend
     console.log(
       `Verifying ${
         isBackupCode ? "backup code" : "authentication code"
       }: ${code}`
     );
-
-    // Mock successful verification
     return true;
   };
 
@@ -40,7 +37,6 @@ export default function MFA() {
 
   // Handle backup codes reset
   const handleResetBackupCodes = async () => {
-    // In a real app, this would generate new backup codes from your backend
     const generateBackupCodes = () => {
       const codes = [];
       for (let i = 0; i < 10; i++) {
@@ -48,7 +44,6 @@ export default function MFA() {
         for (let j = 0; j < 8; j++) {
           code += Math.floor(Math.random() * 10);
         }
-        // Format as XXXX-XXXX
         codes.push(`${code.substring(0, 4)}-${code.substring(4)}`);
       }
       return codes;

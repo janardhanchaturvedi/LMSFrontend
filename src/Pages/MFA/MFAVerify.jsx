@@ -61,7 +61,7 @@ const MFAVerify = ({ onVerify, onCancel }) => {
             } rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 bg-gray-700 text-gray-200`}
           />
           {error && <p className="mt-2 text-sm text-red-400">{error}</p>}
-          
+
           <div className="mt-4">
             <button
               type="button"
