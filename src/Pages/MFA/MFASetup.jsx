@@ -13,7 +13,11 @@ const MFASetup = ({ onComplete, onCancel }) => {
   const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
   const [loading, setLoading] = useState(false);
-
+  const [completedSteps, setCompletedSteps] = useState({
+    enableMFA: false,
+    qrCode: false,
+    backupCodes: false,
+  });
 
   const handleCopySecret = () => {
     navigator.clipboard.writeText(secret.replace(/\s/g, ""));
@@ -60,6 +64,7 @@ const MFASetup = ({ onComplete, onCancel }) => {
       const responseQRSecret = await response;
       console.log("🚀 ~ handleEnableMFA ~ responseQRSecret:", responseQRSecret);
       setStep("qrcode");
+      setCompletedSteps((prev) => ({ ...prev, enableMFA: true }));
       setSecret(responseQRSecret.data.secret);
       setQrCode(responseQRSecret.data.qrCodeUrl);
     } catch (error) {
@@ -154,7 +159,11 @@ const MFASetup = ({ onComplete, onCancel }) => {
 
       <div className="flex flex-col space-y-4">
         <button
-          onClick={() => setStep("verify")}
+          onClick={() => {
+            setStep("verify");
+            setCompletedSteps((prev) => ({ ...prev, qrCode: true }));
+          }}
+          disabled={!completedSteps.MFASetup}
           className="w-full py-2 px-4 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors"
         >
           Next
