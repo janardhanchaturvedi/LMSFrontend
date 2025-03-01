@@ -14,25 +14,6 @@ const MFASetup = ({ onComplete, onCancel }) => {
   const [copied, setCopied] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // Generate mock backup codes
-  useEffect(() => {
-    if (step === "backup") {
-      const generateBackupCodes = () => {
-        const codes = [];
-        for (let i = 0; i < 10; i++) {
-          let code = "";
-          for (let j = 0; j < 8; j++) {
-            code += Math.floor(Math.random() * 10);
-          }
-          // Format as XXXX-XXXX
-          codes.push(`${code.substring(0, 4)}-${code.substring(4)}`);
-        }
-        return codes;
-      };
-
-      setBackupCodes(generateBackupCodes());
-    }
-  }, [step]);
 
   const handleCopySecret = () => {
     navigator.clipboard.writeText(secret.replace(/\s/g, ""));
