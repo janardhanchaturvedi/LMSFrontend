@@ -31,7 +31,6 @@ function HomePage() {
             </Link>
           </div>
         </div>
-
         <div className="w-1/2 flex items-center justify-center">
           <img alt="homepage image" src={HomePageImage} />
         </div>
