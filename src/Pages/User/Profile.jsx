@@ -56,7 +56,7 @@ function Profile() {
                 <button>Edit profile</button>
               </Link>
             </div>
-            {userData?.mfaEnabled && (
+            {!userData?.mfaEnabled && (
               <Link
                 to="/user/mfa"
                 className="w-1/2 bg-red-600 hover:bg-red-500 transition-all ease-in-out duration-300 rounded-sm font-semibold py-2 cursor-pointer text-center"
